@@ -1,13 +1,18 @@
 package ir.amirhosseinsalari.authclient.config;
 
-import org.springframework.stereotype.Controller;
+import ir.amirhosseinsalari.simplelogger.config.LoggableApi;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HelloController {
+
+
     @GetMapping("/hello")
-    public String hello(){
-        return "hello";
+    @LoggableApi
+    public ResponseEntity<String> hello(){
+        return ResponseEntity.ok("hello");
     }
 
     @GetMapping("/err")
